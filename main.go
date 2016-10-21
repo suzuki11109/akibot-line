@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -49,15 +50,16 @@ func callbackHandler(bot *linebot.Client) func(w http.ResponseWriter, r *http.Re
 	}
 }
 
+var messageEngine = map[string]string{
+	"สวัสดี": "ดีจ้า",
+	"กินไร":  "ไข่เจียวหมูสับ",
+	"ทราย":   "หนอน",
+}
+
 func handleTextMessage(bot *linebot.Client, message *linebot.TextMessage, replyToken string) error {
 	var replyMessage string
 
-	switch message.Text {
-	case "สวัสดี":
-		replyMessage = "ดีจ้า"
-	case "กินไรดี":
-		replyMessage = "ไข่เจียวหมูสับ"
-	}
+	replyMessage = reply(message.Text)
 
 	if replyMessage != "" {
 		if _, err := bot.ReplyMessage(replyToken, linebot.NewTextMessage(replyMessage)).Do(); err != nil {
@@ -66,4 +68,14 @@ func handleTextMessage(bot *linebot.Client, message *linebot.TextMessage, replyT
 	}
 
 	return nil
+}
+
+func reply(message string) string {
+	for k, v := range messageEngine {
+		if strings.Contains(message, k) {
+			return v
+		}
+	}
+
+	return ""
 }
