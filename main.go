@@ -55,6 +55,8 @@ func handleTextMessage(bot *linebot.Client, message *linebot.TextMessage, replyT
 	switch message.Text {
 	case "สวัสดี":
 		replyMessage = "ดีจ้า"
+	case "กินไรดี":
+		replyMessage = "ไข่เจียวหมูสับ"
 	}
 
 	if replyMessage != "" {
