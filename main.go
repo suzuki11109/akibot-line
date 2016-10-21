@@ -59,6 +59,7 @@ var messageEngine = map[string]string{
 	"แจ่ม":    "แจ่ม แจแด็ม แจ่ม ว้าววว",
 	"55555":   "ขำไร",
 	"เก่งมาก": "สวดยอดไปเลยย",
+	"ศพ":      "อย่าว่าเพื่อน",
 }
 
 func handleTextMessage(bot *linebot.Client, message *linebot.TextMessage, replyToken string) error {
