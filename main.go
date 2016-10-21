@@ -63,6 +63,8 @@ var messageEngine = map[string]string{
 	"สวย":      "จริงหรอ?",
 	"เที่ยว":   "ไปทะเลกันเถอะ",
 	"สุรินทร์": "สุรินทร เป็นถิ่นมีหอยย~",
+	"เจ":       "จวย",
+	"สาด":      "แสดดดดดด",
 }
 
 func handleTextMessage(bot *linebot.Client, message *linebot.TextMessage, replyToken string) error {
