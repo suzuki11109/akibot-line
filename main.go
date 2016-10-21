@@ -51,13 +51,14 @@ func callbackHandler(bot *linebot.Client) func(w http.ResponseWriter, r *http.Re
 }
 
 var messageEngine = map[string]string{
-	"กิ":     "อะกิไม่อยู่ คุยกับป๋มได้",
-	"สวัสดี": "ดีจ้า",
-	"กินไร":  "ไข่เจียวหมูสับ",
-	"ทราย":   "หนอน",
-	"สัด":    "พูดเพราะๆสิ ปั๊ดโธ่!",
-	"แจ่ม":   "แจ่ม แจแด็ม แจ่ม ว้าววว",
-	"55555":  "ขำไร",
+	"หวัดดี":  "ดีจ้า",
+	"สวัสดี":  "ดีจ้า",
+	"กินไร":   "ไข่เจียวหมูสับ",
+	"ทราย":    "หนอน",
+	"สัด":     "พูดเพราะๆสิ ปั๊ดโธ่!",
+	"แจ่ม":    "แจ่ม แจแด็ม แจ่ม ว้าววว",
+	"55555":   "ขำไร",
+	"เก่งมาก": "สวดยอดไปเลยย",
 }
 
 func handleTextMessage(bot *linebot.Client, message *linebot.TextMessage, replyToken string) error {
