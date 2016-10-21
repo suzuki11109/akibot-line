@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -11,7 +12,7 @@ func main() {
 		fmt.Fprintf(w, "Hello world")
 	})
 
-	if err := http.ListenAndServe(":9000", nil); err != nil {
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
 		log.Fatal(err)
 	}
 }
