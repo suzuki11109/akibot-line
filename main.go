@@ -41,6 +41,7 @@ func callbackHandler(bot *linebot.Client) func(w http.ResponseWriter, r *http.Re
 			if event.Type == linebot.EventTypeMessage {
 				switch message := event.Message.(type) {
 				case *linebot.TextMessage:
+                    log.Println("userID:", event.Source.UserID)
 					if err = handleTextMessage(bot, message, event.ReplyToken); err != nil {
 						log.Print(err)
 					}
